@@ -34,3 +34,9 @@
 ## Notes
 - `create_sample_data.py` uses `create_all()`; for production use migrations (Flask-Migrate) instead.
 - The app will fall back to a placeholder DB URL if `DATABASE_URL` is not set. Replace with your credentials.
+<img width="1828" height="954" alt="Output-4" src="https://github.com/user-attachments/assets/ae9e2bcc-8410-4e1b-9f41-f1dbbb33c1c5" />
+<img width="1826" height="960" alt="Output-3" src="https://github.com/user-attachments/assets/aff4afa1-e6e4-4a77-a3cf-f83e9162d0db" />
+<img width="1829" height="963" alt="Output-2" src="https://github.com/user-attachments/assets/2eddbc05-e654-46d0-8e04-757be4f3dab0" />
+<img width="1831" height="965" alt="Output-1" src="https://github.com/user-attachments/assets/85b0d14e-2c99-4a9e-8462-e91a340a360e" />
+
+- 
