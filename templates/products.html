@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-between mb-3">
+  <h2>Products</h2>
+  <div>
+    <a class="btn btn-success" href="{{ url_for('add_product') }}">Add Product</a>
+  </div>
+</div>
+<table id="productsTable" class="display table table-striped" style="width:100%">
+  <thead><tr><th>ID</th><th>Name</th><th>SKU</th><th>Description</th><th>Actions</th></tr></thead>
+  <tbody>
+    {% for p in products %}
+    <tr>
+      <td>{{ p.product_id }}</td>
+      <td><a href="{{ url_for('view_product', product_id=p.product_id) }}">{{ p.name }}</a></td>
+      <td>{{ p.sku or '-' }}</td>
+      <td>{{ p.description or '-' }}</td>
+      <td>
+        <a class="btn btn-sm btn-primary" href="{{ url_for('edit_product', product_id=p.product_id) }}">Edit</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<script>
+  $(document).ready(function(){ $('#productsTable').DataTable(); });
+</script>
+{% endblock %}

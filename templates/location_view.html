@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ location.name }}</h2>
+<p><strong>Address:</strong> {{ location.address or '-' }}</p>
+<h4>Movements</h4>
+<table id="locMov" class="table table-sm display">
+  <thead><tr><th>Time</th><th>Product</th><th>From</th><th>To</th><th>Qty</th></tr></thead>
+  <tbody>
+    {% for m in movements %}
+    <tr>
+      <td>{{ m.timestamp }}</td>
+      <td>{{ m.product.name }}</td>
+      <td>{{ m.from_loc.name if m.from_loc else '-' }}</td>
+      <td>{{ m.to_loc.name if m.to_loc else '-' }}</td>
+      <td>{{ m.qty }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<script>$(document).ready(function(){ $('#locMov').DataTable(); });</script>
+{% endblock %}

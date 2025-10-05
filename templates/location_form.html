@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ 'Edit Location' if edit else 'Add Location' }}</h2>
+<form method="post">
+  {{ form.hidden_tag() }}
+  <div class="mb-3">
+    {{ form.name.label }}<br>
+    {{ form.name(class_='form-control') }}
+  </div>
+  <div class="mb-3">
+    {{ form.address.label }}<br>
+    {{ form.address(class_='form-control') }}
+  </div>
+  {{ form.submit(class_='btn btn-primary') }}
+</form>
+{% endblock %}

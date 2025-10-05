@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Product Balance by Location</h2>
+<table id="balTable" class="table table-bordered display">
+  <thead><tr><th>Product</th><th>Warehouse</th><th>Qty</th></tr></thead>
+  <tbody>
+    {% for b in balances %}
+    <tr>
+      <td>{{ b.product.name }}</td>
+      <td>{{ b.location.name }}</td>
+      <td>{{ b.qty }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<script>$(document).ready(function(){ $('#balTable').DataTable(); });</script>
+{% endblock %}

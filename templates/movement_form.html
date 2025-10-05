@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Add Movement</h2>
+<form method="post">
+  {{ form.hidden_tag() }}
+  <div class="mb-3">
+    {{ form.product_id.label }}<br>
+    {{ form.product_id(class_='form-select', id='productSelect') }}
+  </div>
+  <div class="mb-3">
+    {{ form.from_location.label }}<br>
+    {{ form.from_location(class_='form-select') }}
+  </div>
+  <div class="mb-3">
+    {{ form.to_location.label }}<br>
+    {{ form.to_location(class_='form-select') }}
+  </div>
+  <div class="mb-3">
+    {{ form.qty.label }}<br>
+    {{ form.qty(class_='form-control') }}
+  </div>
+  {{ form.submit(class_='btn btn-primary') }}
+</form>
+
+<script>
+$(document).ready(function(){
+    // turn product select into Select2 with AJAX search
+    $('#productSelect').select2({
+        ajax: {
+            url: '{{ url_for('api_product_search') }}',
+            dataType: 'json',
+            delay: 250,
+            data: function(params){ return { q: params.term }; },
+            processResults: function(data){ return { results: data.results }; },
+        },
+        minimumInputLength: 1,
+        width: '100%'
+    });
+});
+</script>
+{% endblock %}
